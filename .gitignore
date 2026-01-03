@@ -1,3 +1,6 @@
 env
 .env
 blog_main/__pycache__/
+blogs/__pycache__/
+blogs/migrations/
+db.sqlite3
