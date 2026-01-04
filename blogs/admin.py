@@ -6,6 +6,7 @@ class BlogAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'category', 'status', 'is_featured', 'created_at')
     search_fields = ('title', 'short_description', 'blog_body',"category__category_name", "author__username", "status")
     list_filter = ('status', 'is_featured', 'category', 'author')
+    list_editable = ('status', 'is_featured')
     ordering = ('-created_at',)
 
 # Register your models here.
