@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Blog, Category
 
 # Create your views here.
@@ -7,7 +7,10 @@ from .models import Blog, Category
 def posts_by_category(request, category_id):
     # Logic to fetch posts by category_id
     posts = Blog.objects.filter(status="Published", category=category_id)
-    category = Category.objects.get(pk=category_id)
+    try:
+        category = Category.objects.get(pk=category_id)
+    except:
+        return redirect('home')
     context = {
         'posts': posts,
         'category': category,
