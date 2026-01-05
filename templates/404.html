@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Page Not Found</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- existing includes -->
+  <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet" />
+
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background: #f5f6fb;
+      color: #111827;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                   "Helvetica Neue", Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .error-shell {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* subtle floating shapes (clean but “out of imagination”) */
+    .error-orb {
+      position: absolute;
+      border-radius: 999px;
+      background: #ffffff;
+      box-shadow:
+        18px 18px 40px rgba(15,23,42,0.08),
+        -16px -16px 35px rgba(255,255,255,0.9);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .error-orb-1 {
+      width: 260px; height: 260px;
+      top: -80px; left: -40px;
+    }
+
+    .error-orb-2 {
+      width: 340px; height: 340px;
+      bottom: -140px; right: -60px;
+    }
+
+    .error-orb-3 {
+      width: 120px; height: 120px;
+      top: 18%;
+      right: 16%;
+    }
+
+    .error-card {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2.8rem 2.4rem 2.4rem;
+      border-radius: 1.75rem;
+      background: #f5f6fb;
+      box-shadow:
+        22px 22px 55px rgba(15,23,42,0.14),
+        -18px -18px 40px rgba(255,255,255,0.9);
+      border: 1px solid rgba(148,163,184,0.18);
+      transition: transform .22s ease-out,
+                  box-shadow .22s ease-out,
+                  border-color .22s ease-out;
+    }
+
+    .error-card:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        26px 26px 65px rgba(15,23,42,0.18),
+        -20px -20px 44px rgba(255,255,255,1);
+      border-color: rgba(37,99,235,0.45);
+    }
+
+    .error-label {
+      font-size: .8rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 1rem;
+    }
+
+    .error-code-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: .4rem;
+    }
+
+    .error-code {
+      font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+      font-size: 4.8rem;
+      letter-spacing: .25em;
+    }
+
+    .error-code span {
+      display: inline-block;
+      position: relative;
+      padding: 0 .08em;
+    }
+
+    /* zero becomes a cut-out ring (neumorphic) */
+    .error-code span.zero {
+      color: transparent;
+    }
+
+    .error-code span.zero::before {
+      content: "0";
+      position: relative;
+      color: #111827;
+      z-index: 1;
+    }
+
+    .error-code span.zero::after {
+      content: "";
+      position: absolute;
+      inset: 10%;
+      border-radius: 999px;
+      background: linear-gradient(145deg,#ffffff,#e5e7eb);
+      box-shadow:
+        inset 6px 6px 16px rgba(0,0,0,0.06),
+        inset -6px -6px 18px rgba(255,255,255,0.9);
+      z-index: 0;
+    }
+
+    .error-title {
+      font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+      font-size: 1.7rem;
+      text-align: center;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: .75rem;
+    }
+
+    .error-subtitle {
+      font-size: 1rem;
+      text-align: center;
+      color: #6b7280;
+      margin-bottom: 1.75rem;
+    }
+
+    .error-meta {
+      font-size: .85rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: #9ca3af;
+      margin-bottom: 1.2rem;
+    }
+
+    .error-actions .btn {
+      min-width: 150px;
+      border-radius: 999px;
+      font-size: .85rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .6rem 1.4rem;
+    }
+
+    .btn-elevated {
+      color: #111827;
+      background: #ffffff;
+      border: 1px solid rgba(148,163,184,0.4);
+      box-shadow:
+        14px 14px 30px rgba(148,163,184,0.35),
+        -10px -10px 26px rgba(255,255,255,0.95);
+    }
+
+    .btn-elevated:hover {
+      background: #f9fafb;
+      border-color: rgba(37,99,235,0.55);
+    }
+
+    .btn-outline-clean {
+      border-radius: 999px;
+    }
+
+    .error-footer-note {
+      font-size: .75rem;
+      text-align: center;
+      color: #9ca3af;
+      margin-top: 1.3rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 576px) {
+      .error-card {
+        padding: 2.3rem 1.7rem 2rem;
+      }
+      .error-code {
+        font-size: 3.6rem;
+        letter-spacing: .18em;
+      }
+      .error-title {
+        font-size: 1.35rem;
+      }
+      .error-orb-3 {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<section class="error-shell">
+  <div class="error-orb error-orb-1"></div>
+  <div class="error-orb error-orb-2"></div>
+  <div class="error-orb error-orb-3"></div>
+
+  <div class="error-card">
+    <div class="error-label">Custom 404 • Crafted UI</div>
+
+    <div class="error-code-row">
+      <div class="error-code">
+        <span>4</span><span class="zero">0</span><span>4</span>
+      </div>
+    </div>
+
+    <h1 class="error-title">Out of Imagination</h1>
+
+    <p class="error-subtitle">
+      You just reached a route my backend doesn’t know yet.
+      <br class="d-none d-sm-block">
+      That’s on the map for the next deployment.
+    </p>
+
+    <p class="error-meta">
+      Meanwhile, here are the safe coordinates.
+    </p>
+
+    <div class="error-actions d-flex flex-wrap justify-content-center">
+      <a href="{% url 'home' %}"
+         class="btn btn-elevated mr-2 mb-2">
+        Back to Home
+      </a>
+      <button type="button"
+              class="btn btn-outline-clean btn-outline-secondary mb-2"
+              onclick="window.history.back()">
+        Previous Page
+      </button>
+    </div>
+
+    <p class="error-footer-note mb-0">
+      404 • but the interface still behaves like production.
+    </p>
+  </div>
+</section>
+
+</body>
+</html>
