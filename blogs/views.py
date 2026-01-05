@@ -7,10 +7,14 @@ from .models import Blog, Category
 def posts_by_category(request, category_id):
     # Logic to fetch posts by category_id
     posts = Blog.objects.filter(status="Published", category=category_id)
+    
+    # We use try-except when we want custom action on exception
     try:
         category = Category.objects.get(pk=category_id)
     except:
         return redirect('home')
+    # we can use get_object_or_404 as well for redirect to 404 error page
+    
     context = {
         'posts': posts,
         'category': category,
