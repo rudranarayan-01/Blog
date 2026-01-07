@@ -7,6 +7,10 @@ class AboutModel(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        verbose_name = "About"
+        verbose_name_plural = "About"
 
     def __str__(self):
         return self.title
