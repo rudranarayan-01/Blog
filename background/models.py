@@ -14,3 +14,16 @@ class AboutModel(models.Model):
 
     def __str__(self):
         return self.title
+    
+class SocialLinks(models.Model):
+    platform = models.CharField(max_length=100)
+    url = models.URLField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        verbose_name = "Social Link"
+        verbose_name_plural = "Social Links"
+
+    def __str__(self):
+        return self.platform
