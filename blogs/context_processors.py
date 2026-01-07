@@ -7,5 +7,5 @@ def get_categories(request):
     return {'categories': categories}
 
 def get_social_links(request):
-    social_links = SocialLinks.objects.first()
+    social_links = SocialLinks.objects.all()
     return {'social_links': social_links}
