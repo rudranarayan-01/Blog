@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import AboutModel
+from .models import AboutModel, SocialLinks
 
 class AboutAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
@@ -11,3 +11,6 @@ class AboutAdmin(admin.ModelAdmin):
     
 # Register your models here.
 admin.site.register(AboutModel, AboutAdmin)
+admin.site.site_header = "Apex News Admin"
+admin.site.site_title = "Apex News Admin Portal"
+admin.site.register(SocialLinks)
