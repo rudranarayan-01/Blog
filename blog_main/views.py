@@ -30,7 +30,11 @@ def register(request):
         if form.is_valid():
             form.save()
             return redirect('home')
-    form = RegistrationForm()
+        else:
+            print(form.errors)
+    else:    
+        form = RegistrationForm()
+        
     context = {
         'form': form,
     }
