@@ -1,7 +1,8 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from background.models import AboutModel
 from blogs.models import Category, Blog
+from .forms import RegistrationForm
 
 def home(request):
     featured_posts = Blog.objects.filter(is_featured=True).order_by('-created_at')
@@ -24,4 +25,13 @@ def home(request):
     return render(request, 'home.html', context)
 
 def register(request):
-    return render(request, 'register.html')
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    form = RegistrationForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'register.html', context)
