@@ -27,6 +27,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('category/', include('blogs.urls')),
     path('blogs/<slug:slug>/', BlogViews.blogs, name = "blogs"),
-    path("blogs/search/", BlogViews.search_blogs, name="search_blogs"),
+    path('blogs/search/', BlogViews.search_blogs, name="search_blogs"),
     path('register/', views.register, name='register'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
