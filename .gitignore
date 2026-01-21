@@ -3,6 +3,7 @@ env
 blog_main/__pycache__/
 blogs/__pycache__/
 background/__pycache__/
+dashboards/__pycache__/
 background/migrations/
 blogs/migrations/
 db.sqlite3
