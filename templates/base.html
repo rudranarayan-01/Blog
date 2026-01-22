@@ -33,7 +33,8 @@
                     <a class="btn btn-sm btn-warning" href="{% url 'login' %}">Login</a> &nbsp;
                     <a class="btn btn-sm btn-outline-secondary" href="{% url 'register' %}">Register</a>
                     {% else %}
-                    <span>Welcome, {{ user.username }}!</span> &nbsp; &nbsp;
+                    <span>Welcome, <span class="text-primary">{{ user.username }}</span>!</span> &nbsp; &nbsp;
+                    <a class="btn btn-sm btn-warning" href="{% url 'dashboard' %}">Dashboard</a>&nbsp; &nbsp;
                     <a class="btn btn-sm btn-outline-secondary" href="{% url 'logout' %}">Logout</a>
                     {% endif %}
                 </div>
