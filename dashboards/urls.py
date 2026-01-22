@@ -5,4 +5,5 @@ urlpatterns = [
     # Dashboard URLs will be defined here
     path('', views.dashboard, name="dashboard"),
     path('categories/', views.categories, name="categories"),
+    # path('blogs/', views.blogs, name="blogs"),
 ]

@@ -1,32 +1,49 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class="row">
-    <!-- Left sidebar -->
-    <!-- load the sidebar here -->
-    {% include 'dashboard/sidebar.html' %}
+  <!-- Left sidebar -->
+  <!-- load the sidebar here -->
+  {% include 'dashboard/sidebar.html' %}
 
-    <!-- Right side content -->
-    <div class="col-md-9">
-        <div class="row">
-            <div class="col">
-                <div class="card border-default mb-3">
-                    <div class="card-header text-center text-uppercase font-weight-bold">All Categories</div>
-                    <div class="card-body text-dark">
-                        <h5 class="card-title text-center">{{ category_count }}</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card border-default mb-3">
-                    <div class="card-header text-center text-uppercase font-weight-bold">All posts</div>
-                    <div class="card-body text-dark">
-                        <h5 class="card-title text-center">{{ blogs_count }}</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  <!-- Right side content -->
+  <div class="col-md-9">
+    <h2>All Categories</h2>
+    <a
+      href=""
+      class="btn btn-dark text-light float-right mb-2"
+      >Add New</a
+    >
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Category Name</th>
+          <th>Created At</th>
+          <th>Updated At</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for cat in categories %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ cat }}</td>
+          <td>{{ cat.created_at }}</td>
+          <td>{{ cat.updated_at }}</td>
+          <td>
+            <a href=""
+              ><i class="fa fa-edit text-success"></i
+            ></a>
+            &nbsp;
+            <a href=""
+              ><i class="fa fa-trash text-danger"></i
+            ></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </div>
 
 {% endblock %}
