@@ -57,6 +57,9 @@ def delete_category(request, pk):
     return redirect('categories')
 
 
+
+# POSTS CRUD VIEWS
+
 def posts(request):
     posts = Blog.objects.all()
     context = {
