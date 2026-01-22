@@ -33,7 +33,7 @@ def add_category(request):
     context = {
         'form': form,
     }
-    return render(request, 'dashboard/add_category.html', context)
+    return render(request, 'dashboard/add_categories.html', context)
 
 
 def edit_category(request, pk):
@@ -48,7 +48,7 @@ def edit_category(request, pk):
         'form': form,
         'category': category,
     }
-    return render(request, 'dashboard/edit_category.html', context)
+    return render(request, 'dashboard/edit_categories.html', context)
 
 
 def delete_category(request, pk):
