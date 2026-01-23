@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Blog, Category
+from .models import Blog, Category, Comment
 from django.db.models import Q
 
 # Create your views here.
@@ -29,8 +29,13 @@ def posts_by_category(request, category_id):
 
 def blogs(request, slug):
     single_blog = get_object_or_404(Blog, slug=slug, status="Published")
+    
+    # Handling comment
+    comment = Comment.objects.filter(blog=single_blog)
+    
     context = {
         'single_blog': single_blog,
+        'comments': comment,
     }
     return render(request, 'blogs.html', context)
 
