@@ -112,6 +112,7 @@ def delete_post(request, pk):
     post.delete()
     return redirect('posts')
 
+# USERS VIEWS
 
 def users(request):
     users = User.objects.all()
