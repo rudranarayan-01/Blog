@@ -43,6 +43,7 @@
                     <br>
 
                     {% comment %} Comment Form {% endcomment %}
+                    {% if user.is_authenticated %}
                     <div class="card mb-4">
                         <div class="card-body">
                             <form method="POST" action="#">
@@ -54,7 +55,10 @@
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
                         </div>
-
+                    </div>
+                    {% else %}
+                    <p>Please login to write a comment</p>
+                    {% endif %}
                     </section>
             </article>
         </div>
