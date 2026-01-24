@@ -57,7 +57,7 @@
                         </div>
                     </div>
                     {% else %}
-                    <p>Please login to write a comment</p>
+                    <p>Please <a href="{% url "login" %}">login</a> to write a comment</p>
                     {% endif %}
                     </section>
             </article>
