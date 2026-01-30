@@ -6,4 +6,4 @@ background/__pycache__/
 dashboards/__pycache__/
 background/migrations/
 blogs/migrations/
-db.sqlite3
+# db.sqlite3
